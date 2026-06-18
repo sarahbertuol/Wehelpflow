@@ -20,18 +20,5 @@
     setLang(currentLang === 'en' ? 'pt' : 'en');
   });
 
-  document.querySelectorAll('[data-target-col]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const targetId = `col-${btn.dataset.targetCol}`;
-      const target = document.getElementById(targetId);
-
-      document.querySelectorAll('.service-col').forEach((col) => {
-        col.classList.toggle('is-highlighted', col.id === targetId);
-      });
-
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-  });
-
   setLang('en');
 })();

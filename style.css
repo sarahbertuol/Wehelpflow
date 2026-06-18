@@ -193,6 +193,40 @@ button {
   gap: 1rem;
 }
 
+/* ---------- Who ---------- */
+
+.who {
+  padding: 5rem 1.5rem;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.who h2 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  max-width: 22ch;
+  margin-bottom: 2.5rem;
+}
+
+.who-list {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 48rem;
+}
+
+.who-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+.who-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* ---------- Services ---------- */
 
 .services {
@@ -201,66 +235,101 @@ button {
   padding: 5rem 1.5rem;
 }
 
+.services-heading {
+  max-width: 75rem;
+  margin: 0 auto 3rem;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+}
+
 .services-grid {
   max-width: 75rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .services-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
   }
 }
 
-.service-col {
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.service-card {
   border-top: 1px solid rgba(242, 238, 230, 0.25);
-  padding-top: 2rem;
-  transition: opacity 0.2s ease;
+  padding-top: 1.5rem;
 }
 
-.service-col h2 {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  margin-bottom: 1.25rem;
+.service-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.75rem;
 }
 
-.service-col p {
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  max-width: 38ch;
+.service-card h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  max-width: 32ch;
   color: rgba(242, 238, 230, 0.85);
 }
 
-.service-col.is-highlighted {
-  border-top-color: var(--accent);
-}
+/* ---------- Differentiators ---------- */
 
-.service-col.is-highlighted h2 {
-  color: var(--accent);
-}
-
-.capabilities {
+.diff {
+  padding: 5rem 1.5rem;
   max-width: 75rem;
-  margin: 4rem auto 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0;
-  font-size: 0.95rem;
+  margin: 0 auto;
+}
+
+.diff h2 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  max-width: 24ch;
+  margin-bottom: 2.5rem;
+}
+
+.diff-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem 3rem;
   font-weight: 500;
-  color: rgba(242, 238, 230, 0.75);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
 }
 
-.capabilities li {
-  display: inline-flex;
-  align-items: center;
+@media (min-width: 768px) {
+  .diff-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.capabilities li:not(:last-child)::after {
-  content: "\00B7";
-  margin: 0 0.75rem;
+.diff-list li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.diff-list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
   color: var(--accent);
+  font-weight: 700;
 }
 
 /* ---------- CTA ---------- */
