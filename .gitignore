@@ -1,0 +1,23 @@
+# deps
+/node_modules
+
+# next
+/.next/
+/out/
+
+# prod
+/build
+
+# debug
+npm-debug.log*
+
+# env
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

@@ -1,0 +1,40 @@
+import type { Metadata } from "next";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
+import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  axes: ["opsz"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "wehelpflow — AI automation for small businesses",
+  description: "wehelpflow plugs straightforward AI automation into the business you already run — website, inbox, billing, clients, WhatsApp — live in days, no new tools to learn.",
+  openGraph: {
+    title: "wehelpflow",
+    description: "Stop running your business by hand.",
+    type: "website",
+  },
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="pt" className={`${bricolage.variable} ${inter.variable}`}>
+      <body className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
