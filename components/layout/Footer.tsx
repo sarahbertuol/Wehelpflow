@@ -4,69 +4,82 @@ import { navLinks, modules } from "@/lib/data/navigation";
 export default function Footer() {
   return (
     <footer className="bg-[var(--navy)] text-white">
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-16 lg:gap-24">
+      {/* Main */}
+      <div className="max-w-7xl mx-auto px-6 pt-28 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.7fr] gap-20 lg:gap-28 items-start">
 
-          {/* Left: brand */}
-          <div className="flex flex-col">
-            <Link href="/" className="flex items-baseline gap-1 mb-8 group">
+          {/* Brand column */}
+          <div>
+            <Link href="/" className="inline-flex items-baseline gap-0.5 group">
               <span
-                className="font-black text-[1.6rem] tracking-[-0.03em] leading-none"
+                className="font-black text-[1.4rem] tracking-[-0.025em] text-white"
                 style={{ fontFamily: "var(--font-bricolage)" }}
               >
                 wehelpflow
               </span>
               <span className="w-2 h-2 rounded-full bg-[var(--saffron)] mb-0.5 transition-transform group-hover:scale-125" />
             </Link>
-            <p className="text-sm text-white/40 leading-relaxed max-w-[26ch] mb-12">
-              Automação com IA para quem toca tudo sozinho — ou quase.
+
+            <p
+              className="mt-10 font-black text-[2rem] leading-[1.05] tracking-[-0.03em] text-white max-w-[14ch]"
+              style={{ fontFamily: "var(--font-bricolage)" }}
+            >
+              Automação que cabe no negócio que você já tem.
             </p>
-            <div className="flex flex-col gap-3 mt-auto">
-              {[
-                { label: "Instagram", href: "#" },
-                { label: "LinkedIn", href: "#" },
-                { label: "X / Twitter", href: "#" },
-              ].map((s) => (
+
+            <Link
+              href="/contato"
+              className="mt-12 inline-block text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
+              style={{
+                background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))",
+                boxShadow: "0 4px 20px rgba(245,166,35,0.3)",
+              }}
+            >
+              Começar conversa →
+            </Link>
+
+            <div className="mt-16 flex gap-7">
+              {["Instagram", "LinkedIn", "X"].map((s) => (
                 <a
-                  key={s.label}
-                  href={s.href}
-                  className="text-xs font-semibold tracking-widest uppercase text-white/25 hover:text-white/65 transition-colors"
+                  key={s}
+                  href="#"
+                  className="text-xs font-bold tracking-[0.12em] uppercase text-white/25 hover:text-white/60 transition-colors"
                 >
-                  {s.label}
+                  {s}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Right: big nav links + modules */}
+          {/* Editorial nav column */}
           <div>
-            <nav className="mb-10">
+            <nav className="border-t border-white/10">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-white/30 transition-colors"
+                  className="group flex items-center justify-between border-b border-white/10 py-7 hover:pl-3 transition-all duration-200"
                 >
                   <span
-                    className="font-black text-[1.75rem] leading-none tracking-[-0.025em] text-white/75 group-hover:text-white transition-colors"
+                    className="font-black text-[1.65rem] leading-none tracking-[-0.025em] text-white/65 group-hover:text-white transition-colors"
                     style={{ fontFamily: "var(--font-bricolage)" }}
                   >
                     {link.label}
                   </span>
-                  <span className="text-white/20 group-hover:text-white/60 transition-colors text-xl translate-x-0 group-hover:translate-x-1 transition-transform">
+                  <span className="text-white/25 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-200">
                     →
                   </span>
                 </Link>
               ))}
             </nav>
 
-            {/* Services sub-nav */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3 pt-2">
+            {/* Service modules */}
+            <div className="mt-12 grid grid-cols-3 gap-x-6 gap-y-5">
               {modules.map((m) => (
                 <Link
                   key={m.href}
                   href={m.href}
-                  className="text-xs font-semibold text-white/25 hover:text-white/60 transition-colors tracking-wide"
+                  className="text-xs font-bold tracking-[0.1em] uppercase text-white/25 hover:text-white/55 transition-colors"
                 >
                   {m.label}
                 </Link>
@@ -77,14 +90,18 @@ export default function Footer() {
       </div>
 
       {/* Legal bar */}
-      <div className="border-t border-white/[0.08]">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/20">
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/25">
             © 2026 wehelpflow. Automação com um humano ainda no comando.
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-8">
             {["Termos", "Privacidade", "Cookies"].map((item) => (
-              <Link key={item} href="#" className="text-xs text-white/20 hover:text-white/50 transition-colors">
+              <Link
+                key={item}
+                href="#"
+                className="text-xs text-white/25 hover:text-white/50 transition-colors"
+              >
                 {item}
               </Link>
             ))}

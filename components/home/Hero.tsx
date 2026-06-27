@@ -111,7 +111,7 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="flex flex-wrap gap-4 justify-center mt-10"
+          className="flex flex-wrap gap-4 justify-center mt-12"
         >
           <Link
             href="/servicos"
@@ -140,13 +140,13 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="flex flex-wrap gap-2 justify-center mt-8"
+          className="flex flex-wrap gap-3 justify-center mt-10"
         >
           {modules.map((m, i) => (
             <Link
               key={m.href}
               href={m.href}
-              className="text-[0.62rem] font-bold tracking-[0.08em] uppercase px-4 py-2 rounded-full border transition-all hover:opacity-80 active:scale-[0.97]"
+              className="text-[0.65rem] font-bold tracking-[0.08em] uppercase px-5 py-2.5 rounded-full border transition-all hover:opacity-80 active:scale-[0.97]"
               style={
                 i < 3
                   ? { color: "var(--indigo)", borderColor: "rgba(67,97,238,0.3)", background: "rgba(67,97,238,0.06)" }
