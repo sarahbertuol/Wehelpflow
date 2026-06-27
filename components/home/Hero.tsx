@@ -12,7 +12,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[var(--bg)]">
-      {/* Blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <motion.div className="absolute" style={{ top: -220, left: -180, y: blob1Y }}>
           <div className="blob-1 rounded-full" style={{ width: 780, height: 700, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.22) 0%, rgba(123,97,255,0.1) 45%, transparent 72%)", filter: "blur(60px)" }} />
@@ -28,7 +27,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Container centralizado verticalmente */}
       <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 sm:px-12 lg:px-16" style={{ paddingTop: "calc(5rem + 73px)", paddingBottom: "5rem" }}>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
@@ -58,15 +56,15 @@ export default function Hero() {
         >
           <Link
             href="/servicos"
-            className="inline-flex items-center justify-center font-semibold px-8 py-4 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
-            style={{ fontSize: "1rem", background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
+            className="inline-flex items-center justify-center font-bold rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
+            style={{ fontSize: "1rem", padding: "1rem 2.5rem", background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
           >
             Veja o que automatizamos
           </Link>
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center font-semibold px-8 py-4 rounded-full border-2 border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
-            style={{ fontSize: "1rem" }}
+            className="inline-flex items-center justify-center font-bold rounded-full border-2 border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
+            style={{ fontSize: "1rem", padding: "1rem 2.5rem" }}
           >
             Falar com um humano →
           </Link>

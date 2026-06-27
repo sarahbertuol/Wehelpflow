@@ -9,7 +9,7 @@ export default function FullWidthCTA() {
       className="min-h-screen flex flex-col items-center justify-center text-center px-6"
       style={{ background: "linear-gradient(135deg, var(--indigo) 0%, var(--indigo-2) 100%)" }}
     >
-      <div className="max-w-3xl mx-auto w-full py-28 flex flex-col items-center gap-10">
+      <div className="max-w-3xl mx-auto w-full py-28 flex flex-col items-center gap-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,8 +29,8 @@ export default function FullWidthCTA() {
         >
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center font-semibold px-10 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
-            style={{ fontSize: "1rem", background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 24px rgba(245,166,35,0.45)" }}
+            className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
+            style={{ fontSize: "1.1rem", padding: "1.1rem 3rem", background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 6px 32px rgba(245,166,35,0.5)" }}
           >
             Começar conversa
           </Link>

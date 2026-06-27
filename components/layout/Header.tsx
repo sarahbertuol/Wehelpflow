@@ -7,7 +7,7 @@ export default function Header() {
   const [lang, setLang] = useState<"en" | "pt">("pt");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 sm:px-10 py-5 bg-[var(--bg)] border-b border-[var(--border)]">
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 sm:px-12 lg:px-16 py-5 bg-[var(--bg)] border-b border-[var(--border)]">
       <Link href="/" className="flex items-baseline gap-0.5 group">
         <span
           className="font-black text-[1.2rem] tracking-[-0.025em] text-[var(--navy)]"
@@ -36,7 +36,8 @@ export default function Header() {
         </div>
         <Link
           href="/contato"
-          className="text-sm font-semibold px-5 py-2.5 rounded-full border border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97]"
+          className="inline-flex items-center justify-center font-semibold rounded-full border border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
+          style={{ fontSize: "0.9rem", padding: "0.65rem 1.5rem" }}
         >
           Vamos conversar
         </Link>
