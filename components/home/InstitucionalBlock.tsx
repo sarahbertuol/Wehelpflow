@@ -14,14 +14,14 @@ const differentiators = [
 
 export default function InstitucionalBlock() {
   return (
-    <section className="bg-[var(--navy)] py-32 px-6 overflow-hidden relative">
+    <section className="bg-[var(--navy)] min-h-screen flex flex-col justify-center px-6 py-20 overflow-hidden relative">
       <div
         className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{ background: "radial-gradient(ellipse at center, rgba(67,97,238,0.15) 0%, transparent 70%)", filter: "blur(60px)" }}
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -44,7 +44,7 @@ export default function InstitucionalBlock() {
           </p>
           <Link
             href="/sobre"
-            className="inline-block text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-opacity"
+            className="inline-block text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
             style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 18px rgba(245,166,35,0.35)" }}
           >
             Conheça a wehelpflow →

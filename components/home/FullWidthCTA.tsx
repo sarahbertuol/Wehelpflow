@@ -7,9 +7,9 @@ const lines = ["Pare de ser", "o gargalo", "do seu negócio."];
 
 export default function FullWidthCTA() {
   return (
-    <div className="px-4 md:px-6 py-4">
+    <div className="px-4 md:px-6 py-4 min-h-screen flex flex-col justify-center">
       <section
-        className="relative overflow-hidden rounded-3xl py-40 px-6"
+        className="relative overflow-hidden rounded-3xl flex-1 flex flex-col justify-center px-6 py-24"
         style={{ background: "linear-gradient(140deg, #09091A 0%, #0F1123 45%, #141830 100%)" }}
       >
         {/* Blobs */}
@@ -24,7 +24,7 @@ export default function FullWidthCTA() {
           />
         </div>
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto">
+        <div className="relative z-10 text-center max-w-5xl mx-auto w-full">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -64,14 +64,14 @@ export default function FullWidthCTA() {
           >
             <Link
               href="/contato"
-              className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-opacity"
+              className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
               style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 6px 32px rgba(245,166,35,0.4)" }}
             >
               Começar agora →
             </Link>
             <Link
               href="/como-funciona"
-              className="text-sm font-semibold px-8 py-4 rounded-full text-white border border-white/20 hover:border-white/50 transition-colors"
+              className="text-sm font-semibold px-8 py-4 rounded-full text-white border border-white/20 hover:border-white/50 transition-all active:scale-[0.97]"
             >
               Como funciona
             </Link>

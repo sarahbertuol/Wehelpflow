@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function CareersCTA() {
   return (
     <section
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center px-6 py-20 overflow-hidden"
       style={{ background: "linear-gradient(135deg, var(--indigo) 0%, var(--indigo-2) 100%)" }}
     >
       <span
@@ -22,7 +22,7 @@ export default function CareersCTA() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -51,14 +51,14 @@ export default function CareersCTA() {
         >
           <Link
             href="/contato"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-opacity text-center"
+            className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97] text-center"
             style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 18px rgba(245,166,35,0.4)" }}
           >
             Começar a conversa →
           </Link>
           <Link
             href="/carreiras"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-white border border-white/25 hover:border-white/50 transition-colors text-center"
+            className="text-sm font-semibold px-8 py-4 rounded-full text-white border border-white/25 hover:border-white/50 transition-all active:scale-[0.97] text-center"
           >
             Ver vagas
           </Link>

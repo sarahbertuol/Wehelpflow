@@ -13,7 +13,7 @@ const lines = ["Negócio que roda", "sozinho não é", "mais sonho."];
 
 export default function BigStatement() {
   return (
-    <section className="relative bg-[var(--bg-card)] py-40 px-6 overflow-hidden">
+    <section className="relative bg-[var(--bg-card)] min-h-screen flex flex-col justify-center px-6 py-20 overflow-hidden">
       {/* Floating proof cards — desktop only */}
       {proofCards.map((c, i) => (
         <motion.div
@@ -41,7 +41,7 @@ export default function BigStatement() {
       ))}
 
       {/* Central text */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center w-full">
         <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

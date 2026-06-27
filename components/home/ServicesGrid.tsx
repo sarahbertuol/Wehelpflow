@@ -6,8 +6,8 @@ import { services } from "@/lib/data/services";
 
 export default function ServicesGrid() {
   return (
-    <section className="bg-[var(--bg)] py-32 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[var(--bg)] min-h-screen flex flex-col justify-center px-6 py-20">
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function ServicesGrid() {
               >
                 <Link
                   href={service.href}
-                  className="group relative flex flex-col bg-[var(--bg-card)] p-9 h-full overflow-hidden hover:bg-[var(--bg)] transition-colors"
+                  className="group relative flex flex-col bg-[var(--bg-card)] p-9 h-full overflow-hidden hover:bg-[var(--bg)] active:scale-[0.99] transition-all"
                 >
                   <span
                     className="absolute right-[-0.08em] top-[-0.15em] font-black text-[5.5rem] leading-none tracking-[-0.04em] text-[var(--navy)] opacity-[0.04] pointer-events-none select-none"

@@ -6,8 +6,8 @@ import { newsItems } from "@/lib/data/news";
 
 export default function NewsGrid() {
   return (
-    <section className="bg-[var(--bg)] py-32 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[var(--bg)] min-h-screen flex flex-col justify-center px-6 py-20">
+      <div className="max-w-7xl mx-auto w-full">
         <div className="flex items-end justify-between mb-12 gap-4 flex-wrap">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -44,7 +44,7 @@ export default function NewsGrid() {
             >
               <Link
                 href={item.href}
-                className="group flex flex-col bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-7 h-full hover:border-[var(--indigo)]/40 hover:shadow-lg transition-all"
+                className="group flex flex-col bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-7 h-full hover:border-[var(--indigo)]/40 hover:shadow-lg active:scale-[0.99] transition-all"
               >
                 <div className="flex items-center justify-between mb-5">
                   <span

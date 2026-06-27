@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { modules } from "@/lib/data/navigation";
 
@@ -21,6 +21,12 @@ const floatCards = [
 ];
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const blob1Y = useTransform(scrollY, [0, 700], [0, -120]);
+  const blob2Y = useTransform(scrollY, [0, 700], [0, 160]);
+  const blob3Y = useTransform(scrollY, [0, 700], [0, -60]);
+  const blob4Y = useTransform(scrollY, [0, 700], [0, 80]);
+
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[var(--bg)]">
       <video
@@ -30,17 +36,24 @@ export default function Hero() {
         <source src="/hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Blobs */}
+      {/* Blobs com parallax ao rolar */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="blob-1 absolute rounded-full" style={{ width: 780, height: 700, top: -220, left: -180, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.28) 0%, rgba(123,97,255,0.12) 45%, transparent 72%)", filter: "blur(60px)" }} />
-        <div className="blob-2 absolute rounded-full" style={{ width: 700, height: 620, bottom: -180, right: -140, background: "radial-gradient(ellipse at center, rgba(245,166,35,0.32) 0%, rgba(255,209,102,0.14) 45%, transparent 72%)", filter: "blur(55px)" }} />
-        <div className="blob-3 absolute rounded-full" style={{ width: 420, height: 380, top: "35%", right: "8%", background: "radial-gradient(ellipse at center, rgba(67,97,238,0.16) 0%, transparent 68%)", filter: "blur(70px)" }} />
-        <div className="blob-4 absolute rounded-full" style={{ width: 340, height: 300, top: -60, left: "52%", background: "radial-gradient(ellipse at center, rgba(255,209,102,0.2) 0%, transparent 68%)", filter: "blur(65px)" }} />
+        <motion.div className="absolute" style={{ top: -220, left: -180, y: blob1Y }}>
+          <div className="blob-1 rounded-full" style={{ width: 780, height: 700, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.28) 0%, rgba(123,97,255,0.12) 45%, transparent 72%)", filter: "blur(60px)" }} />
+        </motion.div>
+        <motion.div className="absolute" style={{ bottom: -180, right: -140, y: blob2Y }}>
+          <div className="blob-2 rounded-full" style={{ width: 700, height: 620, background: "radial-gradient(ellipse at center, rgba(245,166,35,0.32) 0%, rgba(255,209,102,0.14) 45%, transparent 72%)", filter: "blur(55px)" }} />
+        </motion.div>
+        <motion.div className="absolute" style={{ top: "35%", right: "8%", y: blob3Y }}>
+          <div className="blob-3 rounded-full" style={{ width: 420, height: 380, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.16) 0%, transparent 68%)", filter: "blur(70px)" }} />
+        </motion.div>
+        <motion.div className="absolute" style={{ top: -60, left: "52%", y: blob4Y }}>
+          <div className="blob-4 rounded-full" style={{ width: 340, height: 300, background: "radial-gradient(ellipse at center, rgba(255,209,102,0.2) 0%, transparent 68%)", filter: "blur(65px)" }} />
+        </motion.div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-20">
-        {/* Eyebrow */}
         <motion.div
           custom={0}
           variants={fadeUp}
@@ -52,7 +65,6 @@ export default function Hero() {
           Automação com IA para pequenos negócios
         </motion.div>
 
-        {/* Headline — mask reveal por linha */}
         <h1
           className="font-black leading-[0.9] tracking-[-0.04em] text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(3.5rem, 9vw, 6.5rem)" }}
@@ -82,7 +94,6 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Sub */}
         <motion.p
           custom={0.7}
           variants={fadeUp}
@@ -95,7 +106,6 @@ export default function Hero() {
           dias, sem apps novos.
         </motion.p>
 
-        {/* Buttons */}
         <motion.div
           custom={0.95}
           variants={fadeUp}
@@ -105,27 +115,26 @@ export default function Hero() {
         >
           <Link
             href="/servicos"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-white transition-opacity hover:opacity-90"
+            className="text-sm font-semibold px-8 py-4 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97]"
             style={{ background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
           >
             Ver o que automatizamos →
           </Link>
           <Link
             href="/contato"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] transition-opacity hover:opacity-90"
+            className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] transition-all hover:opacity-90 active:scale-[0.97]"
             style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 20px rgba(245,166,35,0.3)" }}
           >
             Começar agora
           </Link>
           <Link
             href="/contato"
-            className="text-sm font-semibold px-8 py-4 rounded-full border border-[var(--indigo)]/30 text-[var(--text-mid)] hover:border-[var(--indigo)]/60 transition-colors"
+            className="text-sm font-semibold px-8 py-4 rounded-full border border-[var(--indigo)]/30 text-[var(--text-mid)] hover:border-[var(--indigo)]/60 transition-all active:scale-[0.97]"
           >
             Falar com um humano
           </Link>
         </motion.div>
 
-        {/* Module pills */}
         <motion.div
           custom={1.15}
           variants={fadeUp}
@@ -137,7 +146,7 @@ export default function Hero() {
             <Link
               key={m.href}
               href={m.href}
-              className="text-[0.62rem] font-bold tracking-[0.08em] uppercase px-4 py-2 rounded-full border transition-colors hover:opacity-80"
+              className="text-[0.62rem] font-bold tracking-[0.08em] uppercase px-4 py-2 rounded-full border transition-all hover:opacity-80 active:scale-[0.97]"
               style={
                 i < 3
                   ? { color: "var(--indigo)", borderColor: "rgba(67,97,238,0.3)", background: "rgba(67,97,238,0.06)" }
