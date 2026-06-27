@@ -36,7 +36,6 @@ export default function Hero() {
         <source src="/hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Blobs com parallax ao rolar */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <motion.div className="absolute" style={{ top: -220, left: -180, y: blob1Y }}>
           <div className="blob-1 rounded-full" style={{ width: 780, height: 700, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.28) 0%, rgba(123,97,255,0.12) 45%, transparent 72%)", filter: "blur(60px)" }} />
@@ -52,7 +51,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-20">
         <motion.div
           custom={0}
@@ -99,42 +97,44 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-9 text-[1.05rem] leading-relaxed text-[var(--text-mid)] max-w-[44ch]"
+          className="mt-10 text-[1.05rem] leading-relaxed text-[var(--text-mid)] max-w-[44ch]"
         >
           A wehelpflow encaixa automação com IA direto no negócio que você já
           tem — seu site, seu inbox, sua cobrança, seu WhatsApp — no ar em
           dias, sem apps novos.
         </motion.p>
 
+        {/* Botões CTA */}
         <motion.div
           custom={0.95}
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="flex flex-wrap gap-4 justify-center mt-12"
+          className="flex flex-col sm:flex-row items-center gap-3 mt-12"
         >
           <Link
             href="/servicos"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97]"
+            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
           >
             Ver o que automatizamos →
           </Link>
           <Link
             href="/contato"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] transition-all hover:opacity-90 active:scale-[0.97]"
+            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 20px rgba(245,166,35,0.3)" }}
           >
             Começar agora
           </Link>
           <Link
             href="/contato"
-            className="text-sm font-semibold px-8 py-4 rounded-full border border-[var(--indigo)]/30 text-[var(--text-mid)] hover:border-[var(--indigo)]/60 transition-all active:scale-[0.97]"
+            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full border border-[var(--indigo)]/30 text-[var(--text-mid)] hover:border-[var(--indigo)]/60 transition-all active:scale-[0.97] whitespace-nowrap"
           >
             Falar com um humano
           </Link>
         </motion.div>
 
+        {/* Module pills */}
         <motion.div
           custom={1.15}
           variants={fadeUp}
@@ -146,7 +146,7 @@ export default function Hero() {
             <Link
               key={m.href}
               href={m.href}
-              className="text-[0.65rem] font-bold tracking-[0.08em] uppercase px-5 py-2.5 rounded-full border transition-all hover:opacity-80 active:scale-[0.97]"
+              className="inline-flex items-center text-[0.65rem] font-bold tracking-[0.08em] uppercase px-5 py-2.5 rounded-full border transition-all hover:opacity-80 active:scale-[0.97]"
               style={
                 i < 3
                   ? { color: "var(--indigo)", borderColor: "rgba(67,97,238,0.3)", background: "rgba(67,97,238,0.06)" }
@@ -159,7 +159,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Floating stat cards */}
       {floatCards.map((card) => (
         <motion.div
           key={card.id}
@@ -179,7 +178,6 @@ export default function Hero() {
         </motion.div>
       ))}
 
-      {/* Live badge */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
