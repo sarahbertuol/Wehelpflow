@@ -51,7 +51,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-24 pb-20">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-28 pb-24">
         <motion.div
           custom={0}
           variants={fadeUp}
@@ -110,25 +110,25 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="flex flex-col sm:flex-row items-center gap-3 mt-12"
+          className="flex flex-wrap items-center justify-center gap-4 mt-14"
         >
           <Link
             href="/servicos"
-            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
+            className="inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
           >
             Ver o que automatizamos →
           </Link>
           <Link
             href="/contato"
-            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
+            className="inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 20px rgba(245,166,35,0.3)" }}
           >
             Começar agora
           </Link>
           <Link
             href="/contato"
-            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full border border-[var(--indigo)]/30 text-[var(--text-mid)] hover:border-[var(--indigo)]/60 transition-all active:scale-[0.97] whitespace-nowrap"
+            className="inline-flex items-center justify-center text-sm font-semibold px-8 py-4 rounded-full border border-[var(--border)] text-[var(--text-mid)] hover:border-[var(--indigo)]/40 hover:text-[var(--navy)] transition-all active:scale-[0.97] whitespace-nowrap"
           >
             Falar com um humano
           </Link>
@@ -140,7 +140,7 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="flex flex-wrap gap-3 justify-center mt-10"
+          className="flex flex-wrap gap-3 justify-center mt-14"
         >
           {modules.map((m, i) => (
             <Link
