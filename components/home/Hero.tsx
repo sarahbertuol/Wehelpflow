@@ -11,68 +11,31 @@ export default function Hero() {
   const blob4Y = useTransform(scrollY, [0, 700], [0, 80]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[var(--bg)]">
-      {/* Blobs de fundo */}
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-[var(--bg)]">
+      {/* Blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <motion.div className="absolute" style={{ top: -220, left: -180, y: blob1Y }}>
-          <div
-            className="blob-1 rounded-full"
-            style={{
-              width: 780,
-              height: 700,
-              background: "radial-gradient(ellipse at center, rgba(67,97,238,0.22) 0%, rgba(123,97,255,0.1) 45%, transparent 72%)",
-              filter: "blur(60px)",
-            }}
-          />
+          <div className="blob-1 rounded-full" style={{ width: 780, height: 700, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.22) 0%, rgba(123,97,255,0.1) 45%, transparent 72%)", filter: "blur(60px)" }} />
         </motion.div>
         <motion.div className="absolute" style={{ bottom: -180, right: -140, y: blob2Y }}>
-          <div
-            className="blob-2 rounded-full"
-            style={{
-              width: 700,
-              height: 620,
-              background: "radial-gradient(ellipse at center, rgba(245,166,35,0.25) 0%, rgba(255,209,102,0.12) 45%, transparent 72%)",
-              filter: "blur(55px)",
-            }}
-          />
+          <div className="blob-2 rounded-full" style={{ width: 700, height: 620, background: "radial-gradient(ellipse at center, rgba(245,166,35,0.25) 0%, rgba(255,209,102,0.12) 45%, transparent 72%)", filter: "blur(55px)" }} />
         </motion.div>
         <motion.div className="absolute" style={{ top: "35%", right: "8%", y: blob3Y }}>
-          <div
-            className="blob-3 rounded-full"
-            style={{
-              width: 420,
-              height: 380,
-              background: "radial-gradient(ellipse at center, rgba(67,97,238,0.12) 0%, transparent 68%)",
-              filter: "blur(70px)",
-            }}
-          />
+          <div className="blob-3 rounded-full" style={{ width: 420, height: 380, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.12) 0%, transparent 68%)", filter: "blur(70px)" }} />
         </motion.div>
         <motion.div className="absolute" style={{ top: -60, left: "52%", y: blob4Y }}>
-          <div
-            className="blob-4 rounded-full"
-            style={{
-              width: 340,
-              height: 300,
-              background: "radial-gradient(ellipse at center, rgba(255,209,102,0.18) 0%, transparent 68%)",
-              filter: "blur(65px)",
-            }}
-          />
+          <div className="blob-4 rounded-full" style={{ width: 340, height: 300, background: "radial-gradient(ellipse at center, rgba(255,209,102,0.18) 0%, transparent 68%)", filter: "blur(65px)" }} />
         </motion.div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-10 pt-32 pb-24 flex flex-col gap-8">
+      {/* Container centralizado verticalmente */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 sm:px-12 lg:px-16" style={{ paddingTop: "calc(5rem + 73px)", paddingBottom: "5rem" }}>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="font-black text-[var(--navy)]"
-          style={{
-            fontFamily: "var(--font-bricolage)",
-            fontSize: "clamp(2.5rem, 9vw, 6rem)",
-            lineHeight: 1.02,
-            letterSpacing: "-0.02em",
-            maxWidth: "20ch",
-          }}
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.8rem, 9vw, 6rem)", lineHeight: 1.02, letterSpacing: "-0.025em", maxWidth: "20ch" }}
         >
           Pare de tocar seu negócio na mão.
         </motion.h1>
@@ -81,8 +44,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-          className="text-[var(--text-mid)] leading-relaxed max-w-[42ch]"
-          style={{ fontSize: "clamp(1.05rem, 2vw, 1.3rem)" }}
+          className="text-[var(--text-mid)] leading-relaxed mt-8"
+          style={{ fontSize: "clamp(1.05rem, 2vw, 1.25rem)", maxWidth: "42ch" }}
         >
           A wehelpflow encaixa automação com IA direto no negócio que você já tem — site, e-mail, cobrança, WhatsApp — pra que as partes que não precisam de você parem de precisar de você.
         </motion.p>
@@ -91,21 +54,19 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.7, ease: "easeOut" }}
-          className="flex flex-wrap gap-4"
+          className="flex flex-wrap gap-4 mt-12"
         >
           <Link
             href="/servicos"
-            className="inline-flex items-center justify-center text-base font-semibold px-7 py-3.5 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
-            style={{
-              background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))",
-              boxShadow: "0 6px 28px rgba(67,97,238,0.35)",
-            }}
+            className="inline-flex items-center justify-center font-semibold px-8 py-4 rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
+            style={{ fontSize: "1rem", background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
           >
             Veja o que automatizamos
           </Link>
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center text-base font-semibold px-7 py-3.5 rounded-full border-2 border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
+            className="inline-flex items-center justify-center font-semibold px-8 py-4 rounded-full border-2 border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
+            style={{ fontSize: "1rem" }}
           >
             Falar com um humano →
           </Link>

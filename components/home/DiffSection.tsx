@@ -13,26 +13,20 @@ const items = [
 
 export default function DiffSection() {
   return (
-    <section className="bg-[var(--bg)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24">
+    <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
+      <div className="max-w-7xl mx-auto w-full px-6 sm:px-12 lg:px-16 py-28">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="font-black text-[var(--navy)] mb-10"
-          style={{
-            fontFamily: "var(--font-bricolage)",
-            fontSize: "clamp(1.75rem, 5vw, 3rem)",
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
-            maxWidth: "24ch",
-          }}
+          className="font-black text-[var(--navy)] mb-14"
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "24ch" }}
         >
           Por que isso não é só mais um app
         </motion.h2>
 
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-5">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-7">
           {items.map((item, i) => (
             <motion.li
               key={i}
@@ -40,8 +34,8 @@ export default function DiffSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.5 }}
-              className="relative pl-7 font-medium text-[var(--text-mid)] leading-relaxed"
-              style={{ fontSize: "clamp(1rem, 1.5vw, 1.1rem)" }}
+              className="relative pl-8 font-medium text-[var(--text-mid)] leading-relaxed"
+              style={{ fontSize: "clamp(1rem, 1.6vw, 1.1rem)" }}
             >
               <span className="absolute left-0 top-0 font-bold text-[var(--saffron)]">+</span>
               {item}

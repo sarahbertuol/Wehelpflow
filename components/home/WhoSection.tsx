@@ -12,26 +12,20 @@ const items = [
 
 export default function WhoSection() {
   return (
-    <section className="bg-[var(--bg)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24">
+    <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
+      <div className="max-w-7xl mx-auto w-full px-6 sm:px-12 lg:px-16 py-28">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="font-black text-[var(--navy)] mb-10"
-          style={{
-            fontFamily: "var(--font-bricolage)",
-            fontSize: "clamp(1.75rem, 5vw, 3rem)",
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
-            maxWidth: "22ch",
-          }}
+          className="font-black text-[var(--navy)] mb-14"
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "22ch" }}
         >
           Feito pra quem segura tudo sozinho
         </motion.h2>
 
-        <ul className="flex flex-col gap-5 max-w-[48rem]">
+        <ul className="flex flex-col gap-7 max-w-[52rem]">
           {items.map((item, i) => (
             <motion.li
               key={i}
@@ -39,8 +33,8 @@ export default function WhoSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="relative pl-7 text-[var(--text-mid)] leading-relaxed"
-              style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)" }}
+              className="relative pl-8 text-[var(--text-mid)] leading-relaxed"
+              style={{ fontSize: "clamp(1rem, 1.6vw, 1.15rem)" }}
             >
               <span className="absolute left-0 top-0 font-bold text-[var(--saffron)]">—</span>
               {item}
