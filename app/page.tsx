@@ -1,23 +1,17 @@
 import Hero from "@/components/home/Hero";
-import Marquee from "@/components/home/Marquee";
+import WhoSection from "@/components/home/WhoSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
-import BigStatement from "@/components/home/BigStatement";
-import InstitucionalBlock from "@/components/home/InstitucionalBlock";
+import DiffSection from "@/components/home/DiffSection";
 import FullWidthCTA from "@/components/home/FullWidthCTA";
-import NewsGrid from "@/components/home/NewsGrid";
-import CareersCTA from "@/components/home/CareersCTA";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee />
+      <WhoSection />
       <ServicesGrid />
-      <BigStatement />
-      <InstitucionalBlock />
+      <DiffSection />
       <FullWidthCTA />
-      <NewsGrid />
-      <CareersCTA />
     </>
   );
 }

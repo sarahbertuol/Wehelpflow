@@ -1,82 +1,90 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { services } from "@/lib/data/services";
+
+const services = [
+  {
+    num: "01",
+    title: "Seu negócio online em 48hrs",
+    desc: "Um site de verdade, não uma novela de três meses. A gente constrói, você aprova, e já está no ar.",
+  },
+  {
+    num: "02",
+    title: "Feed atualizado em um clique",
+    desc: "Conteúdo agendado, publicado e consistente — sem você abrir cinco apps pra isso.",
+  },
+  {
+    num: "03",
+    title: "Caixa de email limpa e organizada",
+    desc: "Spam fora, prioridades marcadas, respostas rascunhadas. Você só abre o que realmente precisa de você.",
+  },
+  {
+    num: "04",
+    title: "Pagamentos e cobranças em dia",
+    desc: "Boletos saem, lembretes cobram quem atrasou, e você para de ser quem precisa pedir dinheiro.",
+  },
+  {
+    num: "05",
+    title: "Gestão de clientes automatizada",
+    desc: "Cada cliente num lugar só, com alerta no instante em que alguém fica quieto demais.",
+  },
+  {
+    num: "06",
+    title: "Atendimento 24hrs sem você",
+    desc: "O WhatsApp responde perguntas, agenda horários, e só te chama quando realmente precisa de você.",
+  },
+];
 
 export default function ServicesGrid() {
   return (
-    <section className="bg-[var(--bg)] min-h-screen flex flex-col justify-center overflow-hidden">
-      <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 py-24">
-        <motion.div
+    <section className="bg-[var(--navy)]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-14"
+          transition={{ duration: 0.7 }}
+          className="font-black text-white mb-14"
+          style={{
+            fontFamily: "var(--font-bricolage)",
+            fontSize: "clamp(1.75rem, 5vw, 3rem)",
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+          }}
         >
-          <span className="block text-[0.6rem] font-bold tracking-[0.14em] uppercase text-[var(--indigo)] opacity-65 mb-4">
-            Seis automações. Uma decisão.
-          </span>
-          <h2
-            className="font-black text-[2.6rem] leading-[1.02] tracking-[-0.03em] text-[var(--navy)]"
-            style={{ fontFamily: "var(--font-bricolage)" }}
-          >
-            Seis coisas,<br />fora do seu prato.
-          </h2>
-        </motion.div>
+          Seis coisas, fora do seu prato
+        </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)]">
-          {services.map((service, i) => {
-            const isIndigo = service.accent === "indigo";
-            return (
-              <motion.article
-                key={service.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07, duration: 0.55 }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+          {services.map((s, i) => (
+            <motion.article
+              key={s.num}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.07, duration: 0.55 }}
+              className="border-t border-white/20 pt-6"
+            >
+              <span
+                className="block font-black text-[1.05rem] text-[var(--saffron)] mb-3"
+                style={{ fontFamily: "var(--font-bricolage)" }}
               >
-                <Link
-                  href={service.href}
-                  className="group relative flex flex-col bg-[var(--bg-card)] p-10 h-full overflow-hidden hover:bg-[var(--bg)] active:scale-[0.99] transition-all"
-                >
-                  <span
-                    className="absolute right-[-0.08em] top-[-0.15em] font-black text-[5.5rem] leading-none tracking-[-0.04em] text-[var(--navy)] opacity-[0.04] pointer-events-none select-none"
-                    style={{ fontFamily: "var(--font-bricolage)" }}
-                    aria-hidden="true"
-                  >
-                    {service.num}
-                  </span>
-                  <div
-                    className="w-8 h-[3px] rounded-full mb-6"
-                    style={{ background: isIndigo ? "linear-gradient(90deg, var(--indigo), var(--indigo-2))" : "linear-gradient(90deg, var(--saffron), var(--saffron-2))" }}
-                  />
-                  <span
-                    className="text-[0.6rem] font-black tracking-[0.1em] mb-3"
-                    style={{ color: isIndigo ? "var(--indigo)" : "var(--saffron)" }}
-                  >
-                    {service.num}
-                  </span>
-                  <h3
-                    className="font-black text-[1.05rem] leading-[1.2] tracking-[-0.01em] text-[var(--navy)] mb-4"
-                    style={{ fontFamily: "var(--font-bricolage)" }}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className="text-[0.85rem] leading-relaxed text-[var(--text-mid)] opacity-80 relative z-10 flex-1">
-                    {service.description}
-                  </p>
-                  <span
-                    className="mt-6 text-[0.75rem] font-semibold opacity-0 group-hover:opacity-100 transition-all -translate-x-1 group-hover:translate-x-0"
-                    style={{ color: isIndigo ? "var(--indigo)" : "var(--saffron)" }}
-                  >
-                    Saiba mais →
-                  </span>
-                </Link>
-              </motion.article>
-            );
-          })}
+                {s.num}
+              </span>
+              <h3
+                className="font-black text-white mb-3"
+                style={{
+                  fontFamily: "var(--font-bricolage)",
+                  fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
+                  lineHeight: 1.15,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {s.title}
+              </h3>
+              <p className="text-[0.95rem] text-white/75 leading-relaxed">{s.desc}</p>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
