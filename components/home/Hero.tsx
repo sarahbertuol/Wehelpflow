@@ -52,12 +52,12 @@ export default function Hero() {
           Automação com IA para pequenos negócios
         </motion.div>
 
-        {/* Headline — mask reveal per line */}
+        {/* Headline — mask reveal por linha */}
         <h1
           className="font-black leading-[0.9] tracking-[-0.04em] text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(3.5rem, 9vw, 6.5rem)" }}
         >
-          {["Stop.", "Running."].map((line, i) => (
+          {["Chega.", "De fazer"].map((line, i) => (
             <span key={line} style={{ display: "block", overflow: "hidden", paddingBottom: "0.05em" }}>
               <motion.span
                 style={{ display: "block" }}
@@ -76,8 +76,8 @@ export default function Hero() {
               animate={{ y: "0%" }}
               transition={{ delay: 0.46, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span style={{ color: "var(--indigo)" }}>By</span>{" "}
-              <span style={{ color: "var(--saffron)" }}>Hand.</span>
+              <span style={{ color: "var(--indigo)" }}>na</span>{" "}
+              <span style={{ color: "var(--saffron)" }}>mão.</span>
             </motion.span>
           </span>
         </h1>
@@ -179,7 +179,7 @@ export default function Hero() {
         style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 18px rgba(245,166,35,0.35)" }}
       >
         <span className="animate-pulse-dot w-2 h-2 rounded-full bg-[var(--navy)]" aria-hidden="true" />
-        <span className="text-[0.68rem] font-bold text-[var(--navy)] whitespace-nowrap">Live agora · 3 clientes em setup</span>
+        <span className="text-[0.68rem] font-bold text-[var(--navy)] whitespace-nowrap">Ao vivo · 3 clientes em configuração</span>
       </motion.div>
     </section>
   );

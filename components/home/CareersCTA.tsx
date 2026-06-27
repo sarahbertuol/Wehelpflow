@@ -14,7 +14,7 @@ export default function CareersCTA() {
         style={{ fontFamily: "var(--font-bricolage)" }}
         aria-hidden="true"
       >
-        NOW
+        AGORA
       </span>
       <div
         className="absolute -top-24 -left-24 w-80 h-80 rounded-full pointer-events-none"

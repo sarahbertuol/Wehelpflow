@@ -16,7 +16,7 @@ export default function NewsGrid() {
             transition={{ duration: 0.6 }}
           >
             <span className="block text-[0.6rem] font-bold tracking-[0.14em] uppercase text-[var(--indigo)] opacity-65 mb-4">
-              Cases & Insights
+              Casos & Insights
             </span>
             <h2
               className="font-black text-[2.6rem] leading-[1.02] tracking-[-0.03em] text-[var(--navy)]"
