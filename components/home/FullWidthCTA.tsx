@@ -7,12 +7,11 @@ const lines = ["Pare de ser", "o gargalo", "do seu negócio."];
 
 export default function FullWidthCTA() {
   return (
-    <div className="px-4 md:px-6 py-4 min-h-screen flex flex-col justify-center">
+    <div className="min-h-screen flex flex-col justify-center px-4 sm:px-6 py-6">
       <section
-        className="relative overflow-hidden rounded-3xl flex-1 flex flex-col justify-center px-6 py-24"
+        className="relative overflow-hidden rounded-3xl flex-1 flex flex-col justify-center"
         style={{ background: "linear-gradient(140deg, #09091A 0%, #0F1123 45%, #141830 100%)" }}
       >
-        {/* Blobs */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div
             className="absolute -top-1/3 -left-1/4 w-[700px] h-[700px] rounded-full"
@@ -24,7 +23,7 @@ export default function FullWidthCTA() {
           />
         </div>
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto w-full">
+        <div className="relative z-10 text-center max-w-5xl mx-auto w-full px-8 sm:px-16 lg:px-24 py-24">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -60,18 +59,18 @@ export default function FullWidthCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.55, duration: 0.7 }}
-            className="mt-14 flex gap-4 justify-center flex-wrap"
+            className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
               href="/contato"
-              className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-10 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97] whitespace-nowrap"
               style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 6px 32px rgba(245,166,35,0.4)" }}
             >
               Começar agora →
             </Link>
             <Link
               href="/como-funciona"
-              className="text-sm font-semibold px-8 py-4 rounded-full text-white border border-white/20 hover:border-white/50 transition-all active:scale-[0.97]"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-semibold px-10 py-4 rounded-full text-white border border-white/25 hover:border-white/50 transition-all active:scale-[0.97] whitespace-nowrap"
             >
               Como funciona
             </Link>

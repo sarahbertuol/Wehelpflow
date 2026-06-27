@@ -3,22 +3,21 @@
 import { motion } from "framer-motion";
 
 const proofCards = [
-  { val: "90%", label: "de tarefas manuais\neliminadas", accent: "indigo", pos: "left-[5%] top-[22%]" },
+  { val: "90%", label: "de tarefas manuais\neliminadas", accent: "indigo", pos: "left-[4%] top-[20%]" },
   { val: "48h", label: "do briefing\nao ar", accent: "saffron", pos: "right-[4%] top-[18%]" },
-  { val: "3×", label: "mais clientes\natendidos", accent: "saffron", pos: "left-[4%] bottom-[20%]" },
-  { val: "0", label: "apps novos\npra aprender", accent: "indigo", pos: "right-[5%] bottom-[22%]" },
+  { val: "3×", label: "mais clientes\natendidos", accent: "saffron", pos: "left-[4%] bottom-[18%]" },
+  { val: "0", label: "apps novos\npra aprender", accent: "indigo", pos: "right-[4%] bottom-[20%]" },
 ];
 
 const lines = ["Negócio que roda", "sozinho não é", "mais sonho."];
 
 export default function BigStatement() {
   return (
-    <section className="relative bg-[var(--bg-card)] min-h-screen flex flex-col justify-center px-6 py-20 overflow-hidden">
-      {/* Floating proof cards — desktop only */}
+    <section className="relative bg-[var(--bg-card)] min-h-screen flex flex-col justify-center overflow-hidden">
       {proofCards.map((c, i) => (
         <motion.div
           key={c.val + i}
-          className={`absolute hidden xl:flex xl:flex-col ${c.pos} rounded-2xl px-7 py-6`}
+          className={`absolute hidden xl:flex xl:flex-col ${c.pos} rounded-2xl px-8 py-7`}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -40,8 +39,7 @@ export default function BigStatement() {
         </motion.div>
       ))}
 
-      {/* Central text */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center w-full">
+      <div className="relative z-10 max-w-4xl mx-auto w-full px-6 sm:px-10 py-24 text-center">
         <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

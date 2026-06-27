@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function CareersCTA() {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center px-6 py-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
       style={{ background: "linear-gradient(135deg, var(--indigo) 0%, var(--indigo-2) 100%)" }}
     >
       <span
@@ -22,21 +22,21 @@ export default function CareersCTA() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 py-24 flex flex-col lg:flex-row items-center justify-between gap-14 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-[0.6rem] font-bold tracking-[0.14em] uppercase text-white/50 mb-4 block">Carreiras</span>
+          <span className="text-[0.6rem] font-bold tracking-[0.14em] uppercase text-white/50 mb-5 block">Carreiras</span>
           <h2
-            className="font-black text-[2.6rem] leading-[1.02] tracking-[-0.025em] text-white max-w-[22ch]"
+            className="font-black text-[2.6rem] leading-[1.02] tracking-[-0.025em] text-white max-w-[22ch] mb-6"
             style={{ fontFamily: "var(--font-bricolage)" }}
           >
             Pronta pra parar<br />de ser o gargalo?
           </h2>
-          <p className="mt-5 text-[0.95rem] text-white/55 max-w-[36ch] leading-relaxed">
+          <p className="text-[0.95rem] text-white/55 max-w-[36ch] leading-relaxed">
             Se você acredita que automação deveria ser simples, acessível e
             entregue em dias — você pensa como a gente.
           </p>
@@ -51,14 +51,14 @@ export default function CareersCTA() {
         >
           <Link
             href="/contato"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97] text-center"
+            className="inline-flex items-center justify-center text-sm font-semibold px-9 py-4 rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97] whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 4px 18px rgba(245,166,35,0.4)" }}
           >
             Começar a conversa →
           </Link>
           <Link
             href="/carreiras"
-            className="text-sm font-semibold px-8 py-4 rounded-full text-white border border-white/25 hover:border-white/50 transition-all active:scale-[0.97] text-center"
+            className="inline-flex items-center justify-center text-sm font-semibold px-9 py-4 rounded-full text-white border border-white/25 hover:border-white/50 transition-all active:scale-[0.97] whitespace-nowrap"
           >
             Ver vagas
           </Link>
