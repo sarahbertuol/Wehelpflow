@@ -1,17 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLang } from "@/lib/i18n/context";
 
-const items = [
-  "Nada novo pra aprender — funciona dentro do que você já usa",
-  "Feito pro seu negócio, não um template genérico",
-  "No ar em dias, não em meses",
-  "Seus dados e ferramentas continuam seus, sempre",
-  "A gente só te avisa quando realmente precisa de um humano",
-  "Preço por entrega, nunca por hora",
-];
+const items = {
+  pt: [
+    "Nada novo pra aprender — funciona dentro do que você já usa",
+    "Feito pro seu negócio, não um template genérico",
+    "No ar em dias, não em meses",
+    "Seus dados e ferramentas continuam seus, sempre",
+    "A gente só te avisa quando realmente precisa de um humano",
+    "Preço por entrega, nunca por hora",
+  ],
+  en: [
+    "Nothing new to learn — it runs inside what you already use",
+    "Built for your business, not a generic template",
+    "Live in days, not months",
+    "Your data and tools stay yours, always",
+    "We only ping you when a human is actually needed",
+    "Priced per delivery, never by the hour",
+  ],
+};
 
 export default function DiffSection() {
+  const { lang } = useLang();
+  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
+
   return (
     <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
       <div
@@ -34,11 +48,11 @@ export default function DiffSection() {
           className="font-black text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "24ch", marginBottom: "3.5rem" }}
         >
-          Por que isso não é só mais um app
+          {_("Why this isn't just another app", "Por que isso não é só mais um app")}
         </motion.h2>
 
         <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", columnGap: "5rem", rowGap: "1.75rem" }}>
-          {items.map((item, i) => (
+          {items[lang].map((item, i) => (
             <motion.li
               key={i}
               initial={{ opacity: 0, x: -16 }}

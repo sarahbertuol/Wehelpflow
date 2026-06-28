@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type StepType = "single" | "multi" | "contact";
+type StepType = "single" | "multi" | "site" | "contact";
 
 type Step = {
   id: string;
@@ -90,6 +90,16 @@ const steps: Step[] = [
     ],
   },
   {
+    id: "site",
+    question: "Você já tem um site?",
+    type: "site",
+    options: [
+      { label: "Sim, tenho", icon: "✅" },
+      { label: "Tenho mas está abandonado", icon: "🕸️" },
+      { label: "Não tenho", icon: "❌" },
+    ],
+  },
+  {
     id: "contato",
     question: "Por fim, como a gente te encontra?",
     hint: "Preencha pelo menos nome + WhatsApp ou e-mail",
@@ -108,6 +118,7 @@ export default function QuizForm() {
   const [direction, setDirection] = useState(1);
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
   const [contact, setContact] = useState({ nome: "", whatsapp: "", email: "" });
+  const [siteUrl, setSiteUrl] = useState("");
   const [done, setDone] = useState(false);
 
   const step = steps[current];
@@ -132,6 +143,11 @@ export default function QuizForm() {
     setTimeout(goNext, 320);
   }
 
+  function pickSite(label: string) {
+    setAnswers((prev) => ({ ...prev, site: label }));
+    if (label !== "Sim, tenho") setTimeout(goNext, 320);
+  }
+
   function toggleMulti(label: string) {
     setAnswers((prev) => {
       const cur = (prev[step.id] as string[]) ?? [];
@@ -143,8 +159,12 @@ export default function QuizForm() {
   }
 
   function handleSubmit() {
+    const siteInfo = answers["site"] === "Sim, tenho" && siteUrl
+      ? `${answers["site"]} (${siteUrl})`
+      : answers["site"] ?? "";
+    const displayAnswers = { ...answers, site: siteInfo };
     const msg = encodeURIComponent(
-      `Olá! Acabei de preencher o questionário da wehelpflow.\n\nNome: ${contact.nome}\nWhatsApp: ${contact.whatsapp}\nE-mail: ${contact.email}\n\nRespostas:\n${Object.entries(answers).map(([, v]) => `• ${Array.isArray(v) ? v.join(", ") : v}`).join("\n")}`
+      `Olá! Acabei de preencher o questionário da wehelpflow.\n\nNome: ${contact.nome}\nWhatsApp: ${contact.whatsapp}\nE-mail: ${contact.email}\n\nRespostas:\n${Object.entries(displayAnswers).map(([, v]) => `• ${Array.isArray(v) ? v.join(", ") : v}`).join("\n")}`
     );
     window.open(`https://wa.me/5551999999999?text=${msg}`, "_blank");
     setDone(true);
@@ -281,6 +301,94 @@ export default function QuizForm() {
                 );
               })}
             </div>
+          )}
+
+          {/* Site question */}
+          {step.type === "site" && (
+            <>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem", marginBottom: answers["site"] === "Sim, tenho" ? "1.5rem" : "0" }}>
+                {step.options!.map((opt) => {
+                  const selected = answers["site"] === opt.label;
+                  return (
+                    <button
+                      key={opt.label}
+                      onClick={() => pickSite(opt.label)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.75rem",
+                        padding: "0.85rem 1.1rem",
+                        borderRadius: "0.875rem",
+                        border: `2px solid ${selected ? "var(--indigo)" : "var(--border)"}`,
+                        background: selected ? "rgba(67,97,238,0.08)" : "var(--bg-card)",
+                        color: selected ? "var(--indigo)" : "var(--text-mid)",
+                        fontWeight: 600,
+                        fontSize: "0.88rem",
+                        textAlign: "left",
+                        cursor: "pointer",
+                        transition: "all 0.15s ease",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      <span style={{ fontSize: "1.15rem", lineHeight: 1, flexShrink: 0 }}>{opt.icon}</span>
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {answers["site"] === "Sim, tenho" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  style={{ display: "flex", flexDirection: "column", gap: "0.45rem", marginBottom: "1.5rem", maxWidth: "400px" }}
+                >
+                  <label
+                    className="font-bold uppercase"
+                    style={{ fontSize: "0.7rem", letterSpacing: "0.08em", color: "var(--text-mid)" }}
+                  >
+                    Endereço do site (opcional)
+                  </label>
+                  <input
+                    type="url"
+                    placeholder="https://meunegocio.com.br"
+                    value={siteUrl}
+                    onChange={(e) => setSiteUrl(e.target.value)}
+                    style={{
+                      padding: "0.85rem 1rem",
+                      borderRadius: "0.75rem",
+                      border: "2px solid var(--border)",
+                      background: "var(--bg-card)",
+                      fontSize: "0.95rem",
+                      color: "var(--navy)",
+                      outline: "none",
+                      width: "100%",
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "var(--indigo)")}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
+                  />
+                  <button
+                    onClick={goNext}
+                    style={{
+                      marginTop: "0.5rem",
+                      alignSelf: "flex-start",
+                      padding: "0.9rem 2.2rem",
+                      borderRadius: "999px",
+                      background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))",
+                      color: "white",
+                      fontWeight: 700,
+                      fontSize: "0.95rem",
+                      cursor: "pointer",
+                      border: "none",
+                      boxShadow: "0 4px 20px rgba(67,97,238,0.3)",
+                    }}
+                  >
+                    Próximo →
+                  </button>
+                </motion.div>
+              )}
+            </>
           )}
 
           {/* Multi choice */}

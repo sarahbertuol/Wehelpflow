@@ -1,17 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLang } from "@/lib/i18n/context";
 
-const services = [
-  { num: "01", title: "Seu negócio online em 48hrs", desc: "Um site de verdade, não uma novela de três meses. A gente constrói, você aprova, e já está no ar." },
-  { num: "02", title: "Feed atualizado em um clique", desc: "Conteúdo agendado, publicado e consistente — sem você abrir cinco apps pra isso." },
-  { num: "03", title: "Caixa de email limpa e organizada", desc: "Spam fora, prioridades marcadas, respostas rascunhadas. Você só abre o que realmente precisa de você." },
-  { num: "04", title: "Pagamentos e cobranças em dia", desc: "Boletos saem, lembretes cobram quem atrasou, e você para de ser quem precisa pedir dinheiro." },
-  { num: "05", title: "Gestão de clientes automatizada", desc: "Cada cliente num lugar só, com alerta no instante em que alguém fica quieto demais." },
-  { num: "06", title: "Atendimento 24hrs sem você", desc: "O WhatsApp responde perguntas, agenda horários, e só te chama quando realmente precisa de você." },
-];
+const services = {
+  pt: [
+    { num: "01", title: "Seu negócio online em 48hrs", desc: "Um site de verdade, não uma novela de três meses. A gente constrói, você aprova, e já está no ar." },
+    { num: "02", title: "Feed atualizado em um clique", desc: "Conteúdo agendado, publicado e consistente — sem você abrir cinco apps pra isso." },
+    { num: "03", title: "Caixa de email limpa e organizada", desc: "Spam fora, prioridades marcadas, respostas rascunhadas. Você só abre o que realmente precisa de você." },
+    { num: "04", title: "Pagamentos e cobranças em dia", desc: "Boletos saem, lembretes cobram quem atrasou, e você para de ser quem precisa pedir dinheiro." },
+    { num: "05", title: "Gestão de clientes automatizada", desc: "Cada cliente num lugar só, com alerta no instante em que alguém fica quieto demais." },
+    { num: "06", title: "Atendimento 24hrs sem você", desc: "O WhatsApp responde perguntas, agenda horários, e só te chama quando realmente precisa de você." },
+  ],
+  en: [
+    { num: "01", title: "Your business, online in 48 hours", desc: "A real website, not a three-month saga. We build it, you approve it, it's live." },
+    { num: "02", title: "Your feed, updated in one click", desc: "Content scheduled, posted, and consistent — without you opening five apps to do it." },
+    { num: "03", title: "An inbox that sorts itself", desc: "Spam gone, priorities flagged, replies drafted. You only open what actually needs you." },
+    { num: "04", title: "Payments and invoices, on time", desc: "Invoices go out, reminders chase late payers, and you stop being the one who asks for money." },
+    { num: "05", title: "Client management, automated", desc: "Every client tracked in one place, with an alert the moment someone's gone quiet too long." },
+    { num: "06", title: "24-hour support, without you", desc: "WhatsApp answers questions, books appointments, and only wakes you up for the ones that truly need you." },
+  ],
+};
 
 export default function ServicesGrid() {
+  const { lang } = useLang();
+  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
+
   return (
     <section className="min-h-screen flex flex-col justify-center bg-[var(--navy)]">
       <div
@@ -34,11 +48,11 @@ export default function ServicesGrid() {
           className="font-black text-white"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", marginBottom: "4rem" }}
         >
-          Seis coisas, fora do seu prato
+          {_("Six things, off your plate", "Seis coisas, fora do seu prato")}
         </motion.h2>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem" }}>
-          {services.map((s, i) => (
+          {services[lang].map((s, i) => (
             <motion.article
               key={s.num}
               initial={{ opacity: 0, y: 20 }}

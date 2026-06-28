@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useLang } from "@/lib/i18n/context";
 
 const containerStyle = {
   maxWidth: "1280px",
@@ -13,11 +14,14 @@ const containerStyle = {
 };
 
 export default function Hero() {
+  const { lang } = useLang();
   const { scrollY } = useScroll();
   const blob1Y = useTransform(scrollY, [0, 700], [0, -120]);
   const blob2Y = useTransform(scrollY, [0, 700], [0, 160]);
   const blob3Y = useTransform(scrollY, [0, 700], [0, -60]);
   const blob4Y = useTransform(scrollY, [0, 700], [0, 80]);
+
+  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[var(--bg)]">
@@ -40,14 +44,24 @@ export default function Hero() {
         className="relative z-10 flex-1 flex flex-col justify-center"
         style={{ ...containerStyle, paddingTop: "calc(5rem + 73px)", paddingBottom: "5rem" }}
       >
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="block font-bold uppercase"
+          style={{ fontSize: "0.65rem", letterSpacing: "0.14em", color: "var(--indigo)", opacity: 0.75, marginBottom: "1.5rem" }}
+        >
+          {_("AI automation for your business", "Automação com IA para seu negócio")}
+        </motion.span>
+
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.08, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="font-black text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.8rem, 9vw, 6rem)", lineHeight: 1.02, letterSpacing: "-0.025em", maxWidth: "20ch" }}
         >
-          Pare de tocar seu negócio na mão.
+          {_("Stop running your business by hand.", "Pare de tocar seu negócio na mão.")}
         </motion.h1>
 
         <motion.p
@@ -57,7 +71,10 @@ export default function Hero() {
           className="text-[var(--text-mid)] leading-relaxed"
           style={{ fontSize: "clamp(1.05rem, 2vw, 1.25rem)", maxWidth: "42ch", marginTop: "2rem" }}
         >
-          A wehelpflow encaixa automação com IA direto no negócio que você já tem — site, e-mail, cobrança, WhatsApp — pra que as partes que não precisam de você parem de precisar de você.
+          {_(
+            "wehelpflow plugs straightforward AI automation into the business you already have — your site, your inbox, your billing, your WhatsApp — so the parts that don't need you finally stop needing you.",
+            "A wehelpflow encaixa automação com IA direto no negócio que você já tem — site, e-mail, cobrança, WhatsApp — pra que as partes que não precisam de você parem de precisar de você."
+          )}
         </motion.p>
 
         <motion.div
@@ -71,14 +88,14 @@ export default function Hero() {
             className="inline-flex items-center justify-center font-bold rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
             style={{ fontSize: "1rem", padding: "1rem 2.5rem", background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
           >
-            Veja o que automatizamos
+            {_("See the 6 things we automate", "Veja o que automatizamos")}
           </Link>
           <Link
             href="/contato"
             className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
             style={{ fontSize: "1rem", padding: "1rem 2.5rem", border: "2px solid var(--navy)" }}
           >
-            Falar com um humano →
+            {_("Talk to a human →", "Falar com um humano →")}
           </Link>
         </motion.div>
       </div>

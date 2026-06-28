@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useLang } from "@/lib/i18n/context";
 
 export default function Header() {
-  const [lang, setLang] = useState<"en" | "pt">("pt");
+  const { lang, setLang } = useLang();
 
   return (
     <header
@@ -44,7 +44,7 @@ export default function Header() {
           className="inline-flex items-center justify-center font-semibold rounded-full border border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
           style={{ fontSize: "0.9rem", padding: "0.65rem 1.5rem" }}
         >
-          Vamos conversar
+          {lang === "en" ? "Let's talk" : "Vamos conversar"}
         </Link>
       </div>
     </header>

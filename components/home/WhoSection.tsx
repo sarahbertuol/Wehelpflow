@@ -1,16 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLang } from "@/lib/i18n/context";
 
-const items = [
-  "Você faz vendas, atendimento, financeiro e marketing — sozinha, ou com mais duas pessoas exaustas",
-  "Seu negócio inteiro vive no WhatsApp e numa planilha muito importante",
-  "Sem orçamento de agência, mas você paga por resultado que vê essa semana",
-  "Você não quer aprender mais uma ferramenta — quer menos coisa pra fazer",
-  "A IA cuida dos 90% repetitivos, desde que um humano entre nos outros 10%",
-];
+const items = {
+  pt: [
+    "Você faz vendas, atendimento, financeiro e marketing — sozinha, ou com mais duas pessoas exaustas",
+    "Seu negócio inteiro vive no WhatsApp e numa planilha muito importante",
+    "Sem orçamento de agência, mas você paga por resultado que vê essa semana",
+    "Você não quer aprender mais uma ferramenta — quer menos coisa pra fazer",
+    "A IA cuida dos 90% repetitivos, desde que um humano entre nos outros 10%",
+  ],
+  en: [
+    "You do sales, support, finance, and marketing — solo, or with two other tired people",
+    "Your whole business lives in WhatsApp and one very important spreadsheet",
+    "No agency budget, but you'll pay for a result you can see this week",
+    "You don't want to learn another tool — you want fewer things to do",
+    "AI can handle the repetitive 90%, as long as a human steps in for the other 10%",
+  ],
+};
 
 export default function WhoSection() {
+  const { lang } = useLang();
+  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
+
   return (
     <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
       <div
@@ -33,11 +46,11 @@ export default function WhoSection() {
           className="font-black text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "22ch", marginBottom: "3.5rem" }}
         >
-          Feito pra quem segura tudo sozinho
+          {_("Built for the one-person army", "Feito pra quem segura tudo sozinho")}
         </motion.h2>
 
         <ul style={{ display: "flex", flexDirection: "column", gap: "1.75rem", maxWidth: "52rem" }}>
-          {items.map((item, i) => (
+          {items[lang].map((item, i) => (
             <motion.li
               key={i}
               initial={{ opacity: 0, x: -16 }}

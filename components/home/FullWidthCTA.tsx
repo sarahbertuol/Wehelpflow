@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useLang } from "@/lib/i18n/context";
 
 export default function FullWidthCTA() {
+  const { lang } = useLang();
+  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
+
   return (
     <section
       className="min-h-screen flex flex-col items-center justify-center text-center"
@@ -18,7 +22,7 @@ export default function FullWidthCTA() {
           className="font-black text-white"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.2rem, 6vw, 4.5rem)", lineHeight: 1.03, letterSpacing: "-0.025em" }}
         >
-          Pronta pra parar de ser o gargalo?
+          {_("Ready to stop being the bottleneck?", "Pronta pra parar de ser o gargalo?")}
         </motion.h2>
 
         <motion.div
@@ -32,7 +36,7 @@ export default function FullWidthCTA() {
             className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
             style={{ fontSize: "1.1rem", padding: "1.1rem 3rem", background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 6px 32px rgba(245,166,35,0.5)" }}
           >
-            Começar conversa
+            {_("Start the conversation", "Começar conversa")}
           </Link>
         </motion.div>
       </div>

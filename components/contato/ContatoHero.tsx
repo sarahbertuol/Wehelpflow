@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLang } from "@/lib/i18n/context";
 
 export default function ContatoHero() {
+  const { lang } = useLang();
+  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
+
   return (
     <section className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[var(--bg)]">
       {/* Blobs */}
@@ -43,7 +47,7 @@ export default function ContatoHero() {
           className="block font-bold uppercase"
           style={{ fontSize: "0.65rem", letterSpacing: "0.14em", color: "var(--indigo)", opacity: 0.75, marginBottom: "1.5rem" }}
         >
-          Fale com a gente
+          {_("Get in touch", "Fale com a gente")}
         </motion.span>
 
         <motion.h1
@@ -58,8 +62,8 @@ export default function ContatoHero() {
             maxWidth: "18ch", marginBottom: "1.5rem",
           }}
         >
-          Vamos resolver isso{" "}
-          <span style={{ color: "var(--indigo)" }}>juntos.</span>
+          {_("Let's solve this", "Vamos resolver isso")}{" "}
+          <span style={{ color: "var(--indigo)" }}>{_("together.", "juntos.")}</span>
         </motion.h1>
 
         <motion.p
@@ -69,7 +73,10 @@ export default function ContatoHero() {
           className="text-[var(--text-mid)]"
           style={{ fontSize: "clamp(1rem, 1.8vw, 1.2rem)", maxWidth: "44ch", marginBottom: "3rem", lineHeight: 1.65 }}
         >
-          Conta o que tá te tomando mais tempo. A gente responde em até 24h com uma proposta concreta — sem enrolação.
+          {_(
+            "Tell us what's taking most of your time. We reply within 24h with a concrete proposal — no fluff.",
+            "Conta o que tá te tomando mais tempo. A gente responde em até 24h com uma proposta concreta — sem enrolação."
+          )}
         </motion.p>
 
         <motion.div
@@ -89,7 +96,7 @@ export default function ContatoHero() {
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
               <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.04L.787 23.426a.75.75 0 00.787.574l4.48-1.164A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.75 9.75 0 01-4.963-1.353l-.355-.213-3.695.96.986-3.607-.232-.371A9.75 9.75 0 1112 21.75z" />
             </svg>
-            Chamar no WhatsApp
+            {_("Chat on WhatsApp", "Chamar no WhatsApp")}
           </a>
 
           <a
