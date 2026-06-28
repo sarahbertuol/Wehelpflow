@@ -8,7 +8,7 @@ export default function ContatoHero() {
   const _ = (en: string, pt: string) => lang === "en" ? en : pt;
 
   return (
-    <section className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[var(--bg)]">
+    <section className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[var(--bg)]" style={{ paddingBottom: "5rem" }}>
       {/* Blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div
@@ -112,6 +112,27 @@ export default function ContatoHero() {
           </a>
         </motion.div>
       </div>
+
+      {/* Scroll anchor */}
+      <motion.a
+        href="#quiz"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-bold uppercase no-underline group"
+        style={{ fontSize: "0.62rem", letterSpacing: "0.14em", color: "var(--indigo)", opacity: 0.65, textDecoration: "none" }}
+      >
+        {_("Quick quote", "Orçamento rápido")}
+        <motion.span
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          style={{ display: "block", lineHeight: 1 }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </motion.span>
+      </motion.a>
     </section>
   );
 }

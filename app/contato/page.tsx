@@ -13,7 +13,7 @@ export default function ContatoPage() {
       <ContatoHero />
 
       {/* Orçamento Rápido */}
-      <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
+      <section id="quiz" className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
         <div
           style={{
             maxWidth: "1280px",
@@ -43,7 +43,7 @@ export default function ContatoPage() {
                 marginBottom: "0.75rem",
               }}
             >
-              Quanto custa automatizar o seu negócio?
+              Quanto custa automatizar<br />o seu negócio?
             </h2>
             <p
               className="text-[var(--text-mid)]"
