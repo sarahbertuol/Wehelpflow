@@ -179,7 +179,7 @@ export default function QuizForm() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        style={{ textAlign: "center", padding: "3rem 0" }}
+        style={{ padding: "3rem 0" }}
       >
         <div style={{ fontSize: "3rem", marginBottom: "1.5rem" }}>🎉</div>
         <h3
@@ -190,7 +190,7 @@ export default function QuizForm() {
         </h3>
         <p
           className="text-[var(--text-mid)]"
-          style={{ fontSize: "1rem", maxWidth: "42ch", margin: "0 auto 2.5rem", lineHeight: 1.65 }}
+          style={{ fontSize: "1rem", maxWidth: "42ch", marginBottom: "2.5rem", lineHeight: 1.65 }}
         >
           Com base nas suas respostas, vamos montar uma estimativa personalizada. Retorno em até 24h.
         </p>

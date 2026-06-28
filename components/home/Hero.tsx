@@ -61,7 +61,7 @@ export default function Hero() {
           className="font-black text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.8rem, 9vw, 6rem)", lineHeight: 1.02, letterSpacing: "-0.025em", maxWidth: "20ch" }}
         >
-          {_("Stop running your business by hand.", "Pare de tocar seu negócio na mão.")}
+          {lang === "en" ? <>Stop running your<br />business by hand.</> : <>Pare de tocar seu<br />negócio na mão.</>}
         </motion.h1>
 
         <motion.p
@@ -83,13 +83,13 @@ export default function Hero() {
           transition={{ delay: 0.35, duration: 0.7, ease: "easeOut" }}
           style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "3rem" }}
         >
-          <Link
-            href="/servicos"
+          <a
+            href="#services"
             className="inline-flex items-center justify-center font-bold rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
             style={{ fontSize: "1rem", padding: "1rem 2.5rem", background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
           >
             {_("See the 6 things we automate", "Veja o que automatizamos")}
-          </Link>
+          </a>
           <Link
             href="/contato"
             className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"

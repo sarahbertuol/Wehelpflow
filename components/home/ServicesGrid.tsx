@@ -27,7 +27,7 @@ export default function ServicesGrid() {
   const _ = (en: string, pt: string) => lang === "en" ? en : pt;
 
   return (
-    <section className="min-h-screen flex flex-col justify-center bg-[var(--navy)]">
+    <section id="services" className="min-h-screen flex flex-col justify-center bg-[var(--navy)]">
       <div
         style={{
           maxWidth: "1280px",
