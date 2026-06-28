@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 export default function FullWidthCTA() {
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6"
-      style={{ background: "linear-gradient(135deg, var(--indigo) 0%, var(--indigo-2) 100%)" }}
+      className="min-h-screen flex flex-col items-center justify-center text-center"
+      style={{ background: "linear-gradient(135deg, var(--indigo) 0%, var(--indigo-2) 100%)", padding: "7rem clamp(1.5rem, 6vw, 6rem)" }}
     >
-      <div className="max-w-3xl mx-auto w-full py-28 flex flex-col items-center gap-12">
+      <div style={{ maxWidth: "800px", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "3rem" }}>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

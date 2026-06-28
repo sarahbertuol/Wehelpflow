@@ -3,6 +3,15 @@
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+const containerStyle = {
+  maxWidth: "1280px",
+  width: "100%",
+  marginLeft: "auto",
+  marginRight: "auto",
+  paddingLeft: "clamp(1.5rem, 6vw, 6rem)",
+  paddingRight: "clamp(1.5rem, 6vw, 6rem)",
+};
+
 export default function Hero() {
   const { scrollY } = useScroll();
   const blob1Y = useTransform(scrollY, [0, 700], [0, -120]);
@@ -27,7 +36,10 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-6 sm:px-12 lg:px-16" style={{ paddingTop: "calc(5rem + 73px)", paddingBottom: "5rem" }}>
+      <div
+        className="relative z-10 flex-1 flex flex-col justify-center"
+        style={{ ...containerStyle, paddingTop: "calc(5rem + 73px)", paddingBottom: "5rem" }}
+      >
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,8 +54,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-          className="text-[var(--text-mid)] leading-relaxed mt-8"
-          style={{ fontSize: "clamp(1.05rem, 2vw, 1.25rem)", maxWidth: "42ch" }}
+          className="text-[var(--text-mid)] leading-relaxed"
+          style={{ fontSize: "clamp(1.05rem, 2vw, 1.25rem)", maxWidth: "42ch", marginTop: "2rem" }}
         >
           A wehelpflow encaixa automação com IA direto no negócio que você já tem — site, e-mail, cobrança, WhatsApp — pra que as partes que não precisam de você parem de precisar de você.
         </motion.p>
@@ -52,7 +64,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.7, ease: "easeOut" }}
-          className="flex flex-wrap gap-4 mt-12"
+          style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "3rem" }}
         >
           <Link
             href="/servicos"
@@ -63,8 +75,8 @@ export default function Hero() {
           </Link>
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center font-bold rounded-full border-2 border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
-            style={{ fontSize: "1rem", padding: "1rem 2.5rem" }}
+            className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
+            style={{ fontSize: "1rem", padding: "1rem 2.5rem", border: "2px solid var(--navy)" }}
           >
             Falar com um humano →
           </Link>

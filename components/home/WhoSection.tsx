@@ -13,19 +13,30 @@ const items = [
 export default function WhoSection() {
   return (
     <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
-      <div className="max-w-7xl mx-auto w-full px-6 sm:px-12 lg:px-16 py-28">
+      <div
+        style={{
+          maxWidth: "1280px",
+          width: "100%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "clamp(1.5rem, 6vw, 6rem)",
+          paddingRight: "clamp(1.5rem, 6vw, 6rem)",
+          paddingTop: "7rem",
+          paddingBottom: "7rem",
+        }}
+      >
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="font-black text-[var(--navy)] mb-14"
-          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "22ch" }}
+          className="font-black text-[var(--navy)]"
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "22ch", marginBottom: "3.5rem" }}
         >
           Feito pra quem segura tudo sozinho
         </motion.h2>
 
-        <ul className="flex flex-col gap-7 max-w-[52rem]">
+        <ul style={{ display: "flex", flexDirection: "column", gap: "1.75rem", maxWidth: "52rem" }}>
           {items.map((item, i) => (
             <motion.li
               key={i}
@@ -33,10 +44,10 @@ export default function WhoSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="relative pl-8 text-[var(--text-mid)] leading-relaxed"
-              style={{ fontSize: "clamp(1rem, 1.6vw, 1.15rem)" }}
+              className="text-[var(--text-mid)] leading-relaxed"
+              style={{ fontSize: "clamp(1rem, 1.6vw, 1.15rem)", paddingLeft: "2rem", position: "relative" }}
             >
-              <span className="absolute left-0 top-0 font-bold text-[var(--saffron)]">—</span>
+              <span style={{ position: "absolute", left: 0, top: 0, fontWeight: 700, color: "var(--saffron)" }}>—</span>
               {item}
             </motion.li>
           ))}

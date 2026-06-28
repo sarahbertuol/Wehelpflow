@@ -14,19 +14,30 @@ const services = [
 export default function ServicesGrid() {
   return (
     <section className="min-h-screen flex flex-col justify-center bg-[var(--navy)]">
-      <div className="max-w-7xl mx-auto w-full px-6 sm:px-12 lg:px-16 py-28">
+      <div
+        style={{
+          maxWidth: "1280px",
+          width: "100%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "clamp(1.5rem, 6vw, 6rem)",
+          paddingRight: "clamp(1.5rem, 6vw, 6rem)",
+          paddingTop: "7rem",
+          paddingBottom: "7rem",
+        }}
+      >
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="font-black text-white mb-16"
-          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em" }}
+          className="font-black text-white"
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", marginBottom: "4rem" }}
         >
           Seis coisas, fora do seu prato
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem" }}>
           {services.map((s, i) => (
             <motion.article
               key={s.num}
@@ -34,15 +45,15 @@ export default function ServicesGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.55 }}
-              className="border-t border-white/20 pt-7"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: "1.75rem" }}
             >
-              <span className="block font-black text-[1.1rem] text-[var(--saffron)] mb-4" style={{ fontFamily: "var(--font-bricolage)" }}>
+              <span className="block font-black" style={{ fontFamily: "var(--font-bricolage)", fontSize: "1.1rem", color: "var(--saffron)", marginBottom: "1rem" }}>
                 {s.num}
               </span>
-              <h3 className="font-black text-white mb-4" style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+              <h3 className="font-black text-white" style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: "1rem" }}>
                 {s.title}
               </h3>
-              <p className="text-[0.95rem] text-white/70 leading-relaxed">{s.desc}</p>
+              <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.65 }}>{s.desc}</p>
             </motion.article>
           ))}
         </div>
