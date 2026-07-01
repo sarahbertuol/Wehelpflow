@@ -24,11 +24,20 @@ const services = {
 
 export default function ServicesGrid() {
   const { lang } = useLang();
-  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
 
   return (
-    <section id="services" className="min-h-screen flex flex-col justify-center bg-[var(--navy)]">
+    <section id="services" className="min-h-screen flex flex-col justify-center relative overflow-hidden" style={{ background: "var(--navy)" }}>
+      {/* Background photo */}
+      <img
+        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&auto=format&fit=crop&q=80"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.18 }}
+      />
+
       <div
+        className="relative z-10"
         style={{
           maxWidth: "1280px",
           width: "100%",
@@ -48,7 +57,9 @@ export default function ServicesGrid() {
           className="font-black text-white"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase", marginBottom: "4rem" }}
         >
-          {_("Six things, off your plate", "Seis coisas, fora do seu prato")}
+          {lang === "en"
+            ? <>Six things, <span style={{ color: "var(--indigo)" }}>off your plate</span></>
+            : <>Seis coisas, <span style={{ color: "var(--indigo)" }}>fora do seu prato</span></>}
         </motion.h2>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem" }}>
@@ -59,15 +70,15 @@ export default function ServicesGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.55 }}
-              style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: "1.75rem" }}
+              style={{ borderTop: "1px solid rgba(255,255,255,0.18)", paddingTop: "1.75rem" }}
             >
-              <span className="block font-black" style={{ fontFamily: "var(--font-bricolage)", fontSize: "1.1rem", color: "var(--saffron)", marginBottom: "1rem" }}>
+              <span className="block font-black" style={{ fontFamily: "var(--font-bricolage)", fontSize: "1.1rem", color: "var(--indigo)", marginBottom: "1rem" }}>
                 {s.num}
               </span>
               <h3 className="font-black text-white" style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.1, letterSpacing: "0", textTransform: "uppercase", marginBottom: "1rem" }}>
                 {s.title}
               </h3>
-              <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.65 }}>{s.desc}</p>
+              <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.65 }}>{s.desc}</p>
             </motion.article>
           ))}
         </div>

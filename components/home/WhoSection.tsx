@@ -22,7 +22,6 @@ const items = {
 
 export default function WhoSection() {
   const { lang } = useLang();
-  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
 
   return (
     <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
@@ -46,7 +45,9 @@ export default function WhoSection() {
           className="font-black text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase", maxWidth: "22ch", marginBottom: "3.5rem" }}
         >
-          {_("Built for the one-person army", "Feito pra quem segura tudo sozinho")}
+          {lang === "en"
+            ? <>Built for the <span style={{ color: "var(--indigo)" }}>one-person army</span></>
+            : <>Feito pra quem segura <span style={{ color: "var(--indigo)" }}>tudo sozinho</span></>}
         </motion.h2>
 
         <ul style={{ display: "flex", flexDirection: "column", gap: "1.75rem", maxWidth: "52rem" }}>

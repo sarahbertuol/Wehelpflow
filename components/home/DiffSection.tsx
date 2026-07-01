@@ -24,7 +24,6 @@ const items = {
 
 export default function DiffSection() {
   const { lang } = useLang();
-  const _ = (en: string, pt: string) => lang === "en" ? en : pt;
 
   return (
     <section className="min-h-screen flex flex-col justify-center bg-[var(--bg)]">
@@ -48,7 +47,9 @@ export default function DiffSection() {
           className="font-black text-[var(--navy)]"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase", maxWidth: "24ch", marginBottom: "3.5rem" }}
         >
-          {_("Why this isn't just another app", "Por que isso não é só mais um app")}
+          {lang === "en"
+            ? <>Why this <span style={{ color: "var(--indigo)" }}>isn't just another app</span></>
+            : <>Por que isso <span style={{ color: "var(--indigo)" }}>não é só mais um app</span></>}
         </motion.h2>
 
         <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", columnGap: "5rem", rowGap: "1.75rem" }}>

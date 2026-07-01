@@ -10,33 +10,57 @@ export default function FullWidthCTA() {
 
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-center text-center"
-      style={{ background: "linear-gradient(135deg, var(--indigo) 0%, var(--indigo-2) 100%)", padding: "7rem clamp(1.5rem, 6vw, 6rem)" }}
+      className="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden"
+      style={{ background: "var(--navy)", padding: "7rem clamp(1.5rem, 6vw, 6rem)" }}
     >
-      <div style={{ maxWidth: "800px", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "3rem" }}>
+      {/* Background photo */}
+      <img
+        src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&auto=format&fit=crop&q=80"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.22 }}
+      />
+      {/* Vignette overlay — darker edges, lighter center */}
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(13,12,10,0.55) 0%, rgba(13,12,10,0.88) 100%)" }} />
+
+      <div className="relative z-10" style={{ maxWidth: "820px", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "3rem" }}>
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="block font-bold uppercase"
+          style={{ fontSize: "0.65rem", letterSpacing: "0.18em", color: "var(--indigo)" }}
+        >
+          {_("Next step", "Próximo passo")}
+        </motion.span>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ delay: 0.1, duration: 0.7 }}
           className="font-black text-white"
           style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.4rem, 6vw, 5rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase" }}
         >
-          {_("Ready to stop being the bottleneck?", "Pronta pra parar de ser o gargalo?")}
+          {lang === "en"
+            ? <>Ready to stop being <span style={{ color: "var(--indigo)" }}>the bottleneck</span>?</>
+            : <>Pronta pra parar de ser <span style={{ color: "var(--indigo)" }}>o gargalo</span>?</>}
         </motion.h2>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.7 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
         >
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:opacity-90 transition-all active:scale-[0.97]"
-            style={{ fontSize: "1.1rem", padding: "1.1rem 3rem", background: "linear-gradient(135deg, var(--saffron), var(--saffron-2))", boxShadow: "0 6px 32px rgba(245,166,35,0.5)" }}
+            className="inline-flex items-center justify-center font-bold rounded-full uppercase hover:opacity-90 transition-all active:scale-[0.97]"
+            style={{ fontSize: "0.95rem", letterSpacing: "0.07em", padding: "1.15rem 3.5rem", background: "var(--indigo)", color: "white", boxShadow: "0 8px 40px rgba(249,115,22,0.45)" }}
           >
-            {_("Start the conversation", "Começar conversa")}
+            {_("Start the conversation →", "Começar conversa →")}
           </Link>
         </motion.div>
       </div>
