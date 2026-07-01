@@ -46,7 +46,7 @@ export default function DiffSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="font-black text-[var(--navy)]"
-          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "24ch", marginBottom: "3.5rem" }}
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase", maxWidth: "24ch", marginBottom: "3.5rem" }}
         >
           {_("Why this isn't just another app", "Por que isso não é só mais um app")}
         </motion.h2>

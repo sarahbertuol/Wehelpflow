@@ -20,7 +20,7 @@ export default function FullWidthCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="font-black text-white"
-          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.2rem, 6vw, 4.5rem)", lineHeight: 1.03, letterSpacing: "-0.025em" }}
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.4rem, 6vw, 5rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase" }}
         >
           {_("Ready to stop being the bottleneck?", "Pronta pra parar de ser o gargalo?")}
         </motion.h2>

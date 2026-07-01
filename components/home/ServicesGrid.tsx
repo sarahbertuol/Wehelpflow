@@ -46,7 +46,7 @@ export default function ServicesGrid() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="font-black text-white"
-          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", marginBottom: "4rem" }}
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase", marginBottom: "4rem" }}
         >
           {_("Six things, off your plate", "Seis coisas, fora do seu prato")}
         </motion.h2>
@@ -64,7 +64,7 @@ export default function ServicesGrid() {
               <span className="block font-black" style={{ fontFamily: "var(--font-bricolage)", fontSize: "1.1rem", color: "var(--saffron)", marginBottom: "1rem" }}>
                 {s.num}
               </span>
-              <h3 className="font-black text-white" style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: "1rem" }}>
+              <h3 className="font-black text-white" style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.1rem, 2vw, 1.4rem)", lineHeight: 1.1, letterSpacing: "0", textTransform: "uppercase", marginBottom: "1rem" }}>
                 {s.title}
               </h3>
               <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.65 }}>{s.desc}</p>

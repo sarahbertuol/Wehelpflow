@@ -27,16 +27,16 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-[var(--bg)]">
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <motion.div className="absolute" style={{ top: -220, left: -180, y: blob1Y }}>
-          <div className="blob-1 rounded-full" style={{ width: 780, height: 700, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.22) 0%, rgba(123,97,255,0.1) 45%, transparent 72%)", filter: "blur(60px)" }} />
+          <div className="blob-1 rounded-full" style={{ width: 780, height: 700, background: "radial-gradient(ellipse at center, rgba(249,115,22,0.18) 0%, rgba(255,154,60,0.08) 45%, transparent 72%)", filter: "blur(60px)" }} />
         </motion.div>
         <motion.div className="absolute" style={{ bottom: -180, right: -140, y: blob2Y }}>
-          <div className="blob-2 rounded-full" style={{ width: 700, height: 620, background: "radial-gradient(ellipse at center, rgba(245,166,35,0.25) 0%, rgba(255,209,102,0.12) 45%, transparent 72%)", filter: "blur(55px)" }} />
+          <div className="blob-2 rounded-full" style={{ width: 700, height: 620, background: "radial-gradient(ellipse at center, rgba(249,115,22,0.2) 0%, rgba(255,179,71,0.1) 45%, transparent 72%)", filter: "blur(55px)" }} />
         </motion.div>
         <motion.div className="absolute" style={{ top: "35%", right: "8%", y: blob3Y }}>
-          <div className="blob-3 rounded-full" style={{ width: 420, height: 380, background: "radial-gradient(ellipse at center, rgba(67,97,238,0.12) 0%, transparent 68%)", filter: "blur(70px)" }} />
+          <div className="blob-3 rounded-full" style={{ width: 420, height: 380, background: "radial-gradient(ellipse at center, rgba(249,115,22,0.1) 0%, transparent 68%)", filter: "blur(70px)" }} />
         </motion.div>
         <motion.div className="absolute" style={{ top: -60, left: "52%", y: blob4Y }}>
-          <div className="blob-4 rounded-full" style={{ width: 340, height: 300, background: "radial-gradient(ellipse at center, rgba(255,209,102,0.18) 0%, transparent 68%)", filter: "blur(65px)" }} />
+          <div className="blob-4 rounded-full" style={{ width: 340, height: 300, background: "radial-gradient(ellipse at center, rgba(255,179,71,0.14) 0%, transparent 68%)", filter: "blur(65px)" }} />
         </motion.div>
       </div>
 
@@ -49,7 +49,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="block font-bold uppercase"
-          style={{ fontSize: "0.65rem", letterSpacing: "0.14em", color: "var(--indigo)", opacity: 0.75, marginBottom: "1.5rem" }}
+          style={{ fontSize: "0.65rem", letterSpacing: "0.18em", color: "var(--indigo)", marginBottom: "1.5rem" }}
         >
           {_("AI automation for your business", "Automação com IA para seu negócio")}
         </motion.span>
@@ -59,7 +59,14 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="font-black text-[var(--navy)]"
-          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2.8rem, 9vw, 6rem)", lineHeight: 1.02, letterSpacing: "-0.025em", maxWidth: "20ch" }}
+          style={{
+            fontFamily: "var(--font-bricolage)",
+            fontSize: "clamp(3rem, 9.5vw, 6.5rem)",
+            lineHeight: 0.98,
+            letterSpacing: "-0.01em",
+            textTransform: "uppercase",
+            maxWidth: "18ch",
+          }}
         >
           {lang === "en" ? <>Stop running your<br />business by hand.</> : <>Pare de tocar seu<br />negócio na mão.</>}
         </motion.h1>
@@ -69,7 +76,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
           className="text-[var(--text-mid)] leading-relaxed"
-          style={{ fontSize: "clamp(1.05rem, 2vw, 1.25rem)", maxWidth: "42ch", marginTop: "2rem" }}
+          style={{ fontSize: "clamp(1rem, 2vw, 1.15rem)", maxWidth: "42ch", marginTop: "2.25rem", fontFamily: "var(--font-inter)" }}
         >
           {_(
             "wehelpflow plugs straightforward AI automation into the business you already have — your site, your inbox, your billing, your WhatsApp — so the parts that don't need you finally stop needing you.",
@@ -85,15 +92,15 @@ export default function Hero() {
         >
           <a
             href="#services"
-            className="inline-flex items-center justify-center font-bold rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap"
-            style={{ fontSize: "1rem", padding: "1rem 2.5rem", background: "linear-gradient(135deg, var(--indigo), var(--indigo-2))", boxShadow: "0 6px 28px rgba(67,97,238,0.35)" }}
+            className="inline-flex items-center justify-center font-bold rounded-full text-white transition-all hover:opacity-90 active:scale-[0.97] whitespace-nowrap uppercase"
+            style={{ fontSize: "0.88rem", letterSpacing: "0.06em", padding: "1rem 2.5rem", background: "var(--indigo)", boxShadow: "0 6px 28px rgba(249,115,22,0.4)" }}
           >
             {_("See the 6 things we automate", "Veja o que automatizamos")}
           </a>
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
-            style={{ fontSize: "1rem", padding: "1rem 2.5rem", border: "2px solid var(--navy)" }}
+            className="inline-flex items-center justify-center font-bold rounded-full text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap uppercase"
+            style={{ fontSize: "0.88rem", letterSpacing: "0.06em", padding: "1rem 2.5rem", border: "2px solid var(--navy)" }}
           >
             {_("Talk to a human →", "Falar com um humano →")}
           </Link>

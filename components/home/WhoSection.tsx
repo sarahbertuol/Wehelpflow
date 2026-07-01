@@ -44,7 +44,7 @@ export default function WhoSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="font-black text-[var(--navy)]"
-          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: "22ch", marginBottom: "3.5rem" }}
+          style={{ fontFamily: "var(--font-bricolage)", fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: 0.97, letterSpacing: "-0.01em", textTransform: "uppercase", maxWidth: "22ch", marginBottom: "3.5rem" }}
         >
           {_("Built for the one-person army", "Feito pra quem segura tudo sozinho")}
         </motion.h2>

@@ -15,7 +15,7 @@ export default function ContatoHero() {
           className="blob-1 absolute rounded-full"
           style={{
             width: 640, height: 580, top: -160, right: -100,
-            background: "radial-gradient(ellipse at center, rgba(67,97,238,0.22) 0%, rgba(123,97,255,0.08) 45%, transparent 72%)",
+            background: "radial-gradient(ellipse at center, rgba(249,115,22,0.18) 0%, rgba(255,154,60,0.07) 45%, transparent 72%)",
             filter: "blur(70px)",
           }}
         />
@@ -57,8 +57,9 @@ export default function ContatoHero() {
           className="font-black text-[var(--navy)]"
           style={{
             fontFamily: "var(--font-bricolage)",
-            fontSize: "clamp(2.8rem, 7vw, 5rem)",
-            lineHeight: 1.03, letterSpacing: "-0.03em",
+            fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+            lineHeight: 0.97, letterSpacing: "-0.01em",
+            textTransform: "uppercase",
             maxWidth: "18ch", marginBottom: "1.5rem",
           }}
         >

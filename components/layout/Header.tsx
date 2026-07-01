@@ -21,8 +21,8 @@ export default function Header() {
         <span className="w-[0.3rem] h-[0.3rem] rounded-full bg-[var(--saffron)] mb-0.5 transition-transform group-hover:scale-125" />
       </Link>
 
-      <div className="flex items-center gap-6">
-        <div className="flex items-center gap-1.5 text-sm font-semibold">
+      <div className="flex items-center gap-5">
+        <div className="flex items-center gap-1.5 text-sm font-bold uppercase" style={{ letterSpacing: "0.05em" }}>
           <button
             onClick={() => setLang("en")}
             className="transition-colors"
@@ -41,8 +41,8 @@ export default function Header() {
         </div>
         <Link
           href="/contato"
-          className="inline-flex items-center justify-center font-semibold rounded-full border border-[var(--navy)] text-[var(--navy)] hover:bg-[var(--navy)] hover:text-white transition-all active:scale-[0.97] whitespace-nowrap"
-          style={{ fontSize: "0.9rem", padding: "0.65rem 1.5rem" }}
+          className="inline-flex items-center justify-center font-bold rounded-full text-white hover:opacity-90 transition-all active:scale-[0.97] whitespace-nowrap uppercase"
+          style={{ fontSize: "0.8rem", letterSpacing: "0.07em", padding: "0.65rem 1.5rem", background: "var(--navy)" }}
         >
           {lang === "en" ? "Let's talk" : "Vamos conversar"}
         </Link>
