@@ -25,7 +25,7 @@ export default function Hero() {
       {/* ── Background photo with parallax ── */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <motion.img
-          src="/hero-bg.jpg"
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&auto=format&fit=crop&q=80"
           alt=""
           style={{
             position: "absolute",
